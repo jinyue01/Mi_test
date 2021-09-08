@@ -1,0 +1,31 @@
+import random
+
+L1 = [i + 1 for i in range(35)]
+L2 = [i + 1 for i in range(12)]
+
+
+def act(N, *arg):
+    res = list(arg)
+    random.shuffle(res)
+    l = []
+    j = 0
+    while j < N:
+        l.append(str(res[j]).zfill(2))
+        j += 1
+
+    l.sort()
+
+    return l
+
+
+def pr(n):
+    for i in range(n):
+        print(*act(5, *L1), sep=',', end='')
+        print(':', end='')
+        print(*act(2, *L2), sep=',')
+
+
+if __name__ == '__main__':
+    print('随机生成大乐透选号,请输入1以上的整数：')
+    pr(int(input()))
+    input()
